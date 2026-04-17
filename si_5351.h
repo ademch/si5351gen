@@ -10,9 +10,9 @@
 #define SI5351_BUS_BASE_ADDR					0x60
 
 #define SI5351_XTAL_FREQ						25000000
-#define SI5351_PLL_FIXED						80000000000ULL
-#define SI5351_FREQ_MULT						100ULL
+#define SI5351_FREQ_MULT						100ULL			// fixed point: xxx xxx xxx.xx
 #define SI5351_DEFAULT_CLK						1000000000ULL
+#define SI5351_PLL_FIXED						80000000000ULL
 
 #define SI5351_PLL_VCO_MIN						600000000
 #define SI5351_PLL_VCO_MAX						900000000
@@ -182,19 +182,19 @@
  };
  */
 
-enum si5351_clock { SI5351_CLK0, SI5351_CLK1, SI5351_CLK2, SI5351_CLK3, SI5351_CLK4, SI5351_CLK5, SI5351_CLK6, SI5351_CLK7 };
+enum si5351_clock         { SI5351_CLK0, SI5351_CLK1, SI5351_CLK2, SI5351_CLK3, SI5351_CLK4, SI5351_CLK5, SI5351_CLK6, SI5351_CLK7 };
 
-enum si5351_pll { SI5351_PLLA, SI5351_PLLB };
+enum si5351_pll           { SI5351_PLLA, SI5351_PLLB };
 
-enum si5351_drive { SI5351_DRIVE_2MA, SI5351_DRIVE_4MA, SI5351_DRIVE_6MA, SI5351_DRIVE_8MA };
+enum si5351_drive         { SI5351_DRIVE_2MA, SI5351_DRIVE_4MA, SI5351_DRIVE_6MA, SI5351_DRIVE_8MA };
 
-enum si5351_clock_source { SI5351_CLK_SRC_XTAL, SI5351_CLK_SRC_CLKIN, SI5351_CLK_SRC_MS_RELAY, SI5351_CLK_SRC_MS };
+enum si5351_clock_source  { SI5351_CLK_SRC_XTAL, SI5351_CLK_SRC_CLKIN, SI5351_CLK_SRC_MS_RELAY, SI5351_CLK_SRC_MS };
 
 enum si5351_clock_disable { SI5351_CLK_DISABLE_LOW, SI5351_CLK_DISABLE_HIGH, SI5351_CLK_DISABLE_HI_Z, SI5351_CLK_DISABLE_NEVER };
 
-enum si5351_clock_fanout { SI5351_FANOUT_CLKIN, SI5351_FANOUT_XO, SI5351_FANOUT_MS };
+enum si5351_clock_fanout  { SI5351_FANOUT_CLKIN, SI5351_FANOUT_XO, SI5351_FANOUT_MS };
 
-enum si5351_pll_input { SI5351_PLL_INPUT_XO, SI5351_PLL_INPUT_CLKIN };
+enum si5351_pll_input     { SI5351_PLL_INPUT_XO, SI5351_PLL_INPUT_CLKIN };
 
 
 /* Struct definitions */
@@ -271,19 +271,18 @@ public:
 	uint8_t si5351_read(uint8_t);
 
 private:
-	uint8_t i2c_bus_addr;
+	uint8_t  m_i2c_bus_addr;
 
-	int32_t ref_correction;
+	uint32_t m_xtal_freq;
+	int32_t  m_ref_correction;
+
+	bool     m_clk_is_set[8];
+	uint64_t m_clk_freqFP[8];
+
+	uint64_t m_plla_freqFP;
+	uint64_t m_pllb_freqFP;
 
 	enum si5351_pll pll_assigned_to_clk[8] = {};
-
-	bool     clk_is_set[8];
-	uint64_t clk_freq[8];
-
-	uint64_t plla_freq;
-	uint64_t pllb_freq;
-
-	uint32_t xtal_freq;
 
 	uint64_t pll_calc_p1p2p3(uint64_t, struct Si5351RegSet *, int32_t);
 
@@ -291,13 +290,12 @@ private:
 	void set_multisynth_reg(enum si5351_clock, struct Si5351RegSet, uint8_t);
 
 	void set_multisynth_rdiv(enum si5351_clock, uint8_t, bool);
-	void set_multisynth_integer_mode(enum si5351_clock, bool);
+	void set_multisynth_integer_mode(enum si5351_clock,  bool);
 
 	void update_sys_status_(struct Si5351Status*);
 	void update_int_status_(struct Si5351IntStatus*);
 
 	uint8_t select_RDIV_forLowFreq(uint64_t&);
-
 
 };
 
