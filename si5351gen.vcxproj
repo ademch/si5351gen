@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM64">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM64">
+      <Configuration>Release</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <Keyword>Linux</Keyword>
+    <RootNamespace>
+    </RootNamespace>
+    <ProjectName>si5351gen</ProjectName>
+    <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
+    <ApplicationType>Linux</ApplicationType>
+    <ApplicationTypeRevision>1.0</ApplicationTypeRevision>
+    <TargetLinuxPlatform>Generic</TargetLinuxPlatform>
+    <LinuxProjectType>{D51BCBC9-82E9-4017-911E-C93873C4EA2B}</LinuxProjectType>
+    <ProjectGuid>{EDDAAC36-0CC2-42B5-81F8-8CEF43AE5B60}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <LinuxIncludePath>c:\visualmicro\ignore</LinuxIncludePath>
+    <wiringPiIncludePath>c:\visualmicro\pi-ignore</wiringPiIncludePath>
+    <TargetOSAndVersion>Arduino</TargetOSAndVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <ImportGroup Label="ExtensionTargets" />
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <IncludePath>$(ProjectDir)..\..\..\..\..\\Users\\selga\\AppData\\Local\\arduino15\\packages\\esp32\\hardware\\esp32\\3.3.0\\cores;$(ProjectDir)..\..\..\AppData\Local\arduino15\packages\esp32\tools\esp-x32\2411\xtensa-esp-elf\include\c++\14.2.0;$(ProjectDir)..\..\..\AppData\Local\arduino15\packages\esp32\tools\esp-x32\2411\xtensa-esp-elf\include\c++\14.2.0\xtensa-esp-elf\esp32;$(ProjectDir)..\..\..\AppData\Local\arduino15\packages\esp32\tools\esp-x32\2411\xtensa-esp-elf\include\c++\14.2.0\backward;$(ProjectDir)..\..\..\AppData\Local\arduino15\packages\esp32\tools\esp-x32\2411\lib\gcc\xtensa-esp-elf\14.2.0\include;$(ProjectDir)..\..\..\AppData\Local\arduino15\packages\esp32\tools\esp-x32\2411\lib\gcc\xtensa-esp-elf\14.2.0\include-fixed;$(ProjectDir)..\..\..\AppData\Local\arduino15\packages\esp32\tools\esp-x32\2411\xtensa-esp-elf\include;$(ProjectDir)..\..\..\AppData\Local\arduino15\packages\esp32\hardware\esp32\3.3.0\libraries\Wire\src;$(ProjectDir)..\libraries\SSD1306_GFX;$(ProjectDir)..\libraries\SSD1306</IncludePath>
+    <RemoteCCompileToolExe>$(ProjectDir)..\..\..\..\..\\Users\\selga\\AppData\\Local\\arduino15\\packages\\esp32\\tools\\esp-x32\\2411\bin\xtensa-esp32-elf-g++</RemoteCCompileToolExe>
+    <RemoteCppCompileToolExe>$(ProjectDir)..\..\..\..\..\\Users\\selga\\AppData\\Local\\arduino15\\packages\\esp32\\tools\\esp-x32\\2411\bin\xtensa-esp32-elf-g++</RemoteCppCompileToolExe>
+    <ValidateArchitecture>false</ValidateArchitecture>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectCapability Include="VisualMicro" />
+    <ProjectCapability Include="VisualMicroLinux" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\libraries\SSD1306\Adafruit_SSD1306.cpp" />
+    <ClCompile Include="..\libraries\SSD1306_GFX\Adafruit_GFX.cpp" />
+    <ClCompile Include="BlinkingLED.cpp" />
+    <ClCompile Include="Command.cpp" />
+    <ClCompile Include="si5351gen.ino">
+      <FileType>CppCode</FileType>
+      <DeploymentContent>true</DeploymentContent>
+    </ClCompile>
+    <ClCompile Include="si_5351.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BlinkingLED.h" />
+    <ClInclude Include="Command.h" />
+    <ClInclude Include="KButton.h" />
+    <ClInclude Include="PinsConfig.h" />
+    <ClInclude Include="si_5351.h" />
+    <ClInclude Include="__vm\.si5351gen.vsarduino.h" />
+  </ItemGroup>
+  <PropertyGroup>
+    <DebuggerFlavor>VisualMicroDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\\Users\\selga\\AppData\\Local\\arduino15\\packages\\esp32\\hardware\\esp32\\3.3.0\\cores;$(ProjectDir)..\..\..\AppData\Local\arduino15\packages\esp32\tools\esp-x32\2411\xtensa-esp-elf\include\c++\14.2.0;$(ProjectDir)..\..\..\AppData\Local\arduino15\packages\esp32\tools\esp-x32\2411\xtensa-esp-elf\include\c++\14.2.0\xtensa-esp-elf\esp32;$(ProjectDir)..\..\..\AppData\Local\arduino15\packages\esp32\tools\esp-x32\2411\xtensa-esp-elf\include\c++\14.2.0\backward;$(ProjectDir)..\..\..\AppData\Local\arduino15\packages\esp32\tools\esp-x32\2411\lib\gcc\xtensa-esp-elf\14.2.0\include;$(ProjectDir)..\..\..\AppData\Local\arduino15\packages\esp32\tools\esp-x32\2411\lib\gcc\xtensa-esp-elf\14.2.0\include-fixed;$(ProjectDir)..\..\..\AppData\Local\arduino15\packages\esp32\tools\esp-x32\2411\xtensa-esp-elf\include;$(ProjectDir)..\..\..\AppData\Local\arduino15\packages\esp32\hardware\esp32\3.3.0\libraries\Wire\src;$(ProjectDir)..\libraries\SSD1306_GFX;$(ProjectDir)..\libraries\SSD1306;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <GccToolChain>$(ProjectDir)..\..\..\..\..\\Users\\selga\\AppData\\Local\\arduino15\\packages\\esp32\\tools\\esp-x32\\2411\bin\xtensa-esp32-elf-g++</GccToolChain>
+      <CppLanguageStandard>c++17</CppLanguageStandard>
+      <CLanguageStandard>gnu11</CLanguageStandard>
+      <CAdditionalWarning />
+      <CppAdditionalWarning />
+      <ForcedIncludeFiles>$(ProjectDir)..\..\..\..\..\program files (x86)\microsoft visual studio\2017\community\common7\ide\extensions\q52jvj0w.ze5\Micro Platforms\default\vm-intelli-pre.h;$(ProjectDir)..\..\..\AppData\Local\Temp\VMBuilds\si5351gen\esp32_esp32_family\Debug\.vmintelli\acad14a43aae086690af187d8c899ec3\vm-intelli-gcc-defines.h;$(ProjectDir)..\..\..\..\..\program files (x86)\microsoft visual studio\2017\community\common7\ide\extensions\q52jvj0w.ze5\Micro Platforms\default\vm-intelli-post.h;$(ProjectDir)__vm\.si5351gen.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <UndefineAllPreprocessorDefinitions>true</UndefineAllPreprocessorDefinitions>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <PreprocessorDefinitions>_VMICRO_INTELLISENSE;__2411___;F_CPU={build.f_cpu};ARDUINO=108018;ARDUINO_ESP32_FAMILY;ARDUINO_ARCH_ESP32;ARDUINO_BOARD=ESP32_FAMILY;ARDUINO_VARIANT={build.variant};ARDUINO_HOST_OS=windows;ARDUINO_FQBN={build.fqbn};ESP32=ESP32;CORE_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties config.Debug.customdebug_esp32_esp32_family_debugger_type="universal" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
