@@ -98,8 +98,8 @@ void Si5351::reset()
  * Frequency range of 8 kHz to 150 MHz
  * Set PLL before calling
  *
- * clk		- Clock output channel
- * freqFP	- Output frequency in Hz*100
+ * clkChannel	- Clock output channel
+ * freqFP		- Output frequency in Hz*100
  */
 uint8_t Si5351::set_freq(enum si5351_clock clkChannel, uint64_t freqFP)
 {
